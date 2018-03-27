@@ -17,10 +17,16 @@ export class AppComponent {
   month: number = this.currentTime.getMonth();
   year: number = this.currentTime.getFullYear();
   selectedRecipe: Recipe= this.recipes[0];
+
   addRecipe(single) {
     // alert('add the recipe');
     this.selectedRecipe = single;
   }
+
+  changeName(single) {
+    this.single.title
+  }
+
   ratingColor(single) {
     if (single.rating <= 3) {
       return "bg-danger";

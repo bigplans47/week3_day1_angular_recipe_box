@@ -10,19 +10,11 @@
     </ul>
     <img width="30" alt="Angular Logo" src="https://www.w3schools.com/images/lamp.jpg">
   </div>
-  <ul>
-    <li [class]="ratingColor(single)" *ngFor="let single of recipes">{{single.title}} | {{single.rating}} <button class="btn-floating btn-large waves-effect waves-light red" (click)=addRecipe(single)>Change Rating</button></li>
-  </ul>
+    <h4><p [class]="ratingColor(single)" *ngFor="let single of recipes">{{single.title}} | {{single.rating}} <button class="waves-effect waves-teal btn-flat" (click)=addRecipe(single)>Change Rating</button></p></h4>
     <hr>
 
     <h4>Selected Recipe: {{selectedRecipe.title}}</h4>
     <h4>Recipe's Rating: {{selectedRecipe.rating}}</h4>
-
-
-    <label>
-      <input name="group1" type="radio" checked />
-      <span>Red</span>
-    </label>
 
   <label for="recipeName">Title of Recipe</label>
   <input [(ngModel)]="recipeName" type="text" name="recipeName" class="form-control"  placeholder="recipe name">
@@ -32,6 +24,10 @@
   <input [(ngModel)]="directionName" type="text" name="directions" class="form-control" id="directions" placeholder="directions">
 
   <form id="rating-form">
+
+    <label for="recipeName">Recipe Name</label>
+      <input type="text" name="recipeName" placeholder="{{selectedRecipe.title}}">
+      <button type="button" class="btn btn-default">Update Name</button>
     <h3>Select the rating of the recipe:</h3>
     <label>
       <input type="radio" name="rating" [(ngModel)]="selectedRecipe.rating" [value]="1"> <h1>1</h1>

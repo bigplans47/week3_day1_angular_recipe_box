@@ -1,3 +1,9 @@
 /*p {
   background-color: gray;
 }*/
+
+.btn-flat {
+  background-color: rgb(100,50,40,0.5);
+  display: block;
+  margin: 0 auto;
+}
