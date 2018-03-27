@@ -8,14 +8,24 @@ import { Recipe } from './models/task.model'
 })
 export class AppComponent {
   title = 'app';
-  inputTask1: string =prompt('enter recipe name');
-  inputTask2: string =prompt('enter recipe ingredients');
-  inputTask3: string =prompt('enter recipe directions');
   recipes: Recipe[] = [
-    new Recipe('Cheesey Bread','cheese and dough', 'mix cheese and dough tada'),
-    new Recipe('Boiled Fish', 'worm on hook plus fishing pole plus 3 hours', 'catch a fish, boil'),
-    new Recipe(this.inputTask1, this.inputTask2, this.inputTask3)
+    new Recipe('Cheesey Bread', 'cheese and dough', 'mix cheese and dough tada', 9),
+    new Recipe('Boiled Fish', 'worm on hook plus fishing pole plus 3 hours', 'catch a fish, boil', 1),
   ];
+  selectedRecipe: Recipe= this.recipes[0];
   currentTime = new Date();
   day: number = this.currentTime.getDate();
+
+  addRecipe() {
+    alert('add the recipe');
+  }
+  ratingColor(single) {
+    if (single.rating <= 3) {
+      return "bg-danger";
+    } else if (single.rating > 3 && single.rating <= 7) {
+      return "bg-warning";
+    } else {
+      return "bg-success";
+    }
+  }
 }

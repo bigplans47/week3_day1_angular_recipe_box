@@ -1,9 +1,46 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}! Day of the Month is {{ day }}
-  </h1>
-  <img width="30" alt="Angular Logo" src="https://www.w3schools.com/images/lamp.jpg">
+<div class="container">
+  <div style="text-align:center">
+    <h1>
+    How to make {{ recipeName }}! <br>
+    Today's day is {{ day }}
+    Ingredients used are
+    <ul>
+      <li>{{ingredientName}}</li>
+      <li>{{directionName}}</li>
+    </ul>
+    </h1>
+    <img width="30" alt="Angular Logo" src="https://www.w3schools.com/images/lamp.jpg">
+  </div>
+  <h2>Here are some links to help you start: </h2>
+  <ul>
+    <li [class]="ratingColor(single)" *ngFor="let single of recipes">{{single.title}} | {{single.rating}}</li>
+  </ul>
+    <hr>
+
+    <h3>Selected Recipe: {{selectedRecipe.title}}</h3>
+    <h4>Recipe's Rating: {{selectedRecipe.rating}}</h4>
+
+
+  <label for="recipeName">Title of Recipe</label>
+  <input [(ngModel)]="recipeName" type="text" name="recipeNAme" class="form-control"  placeholder="title2">
+  <label for="ingredient">Ingredients</label>
+  <input [(ngModel)]="ingredientName" type="text" name="ingredient" class="form-control" id="ingredient" placeholder="ingredients">
+  <label for="directions">Directions</label>
+  <input [(ngModel)]="directionName" type="text" name="directions" class="form-control" id="directions" placeholder="directions">
+  <label for="recipeRating">Select the rating of the recipe: </label>
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="1"> 1
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="2"> 2
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="3"> 3
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="4"> 4
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="5"> 5
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="6"> 6
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="7"> 7
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="8"> 8
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="9"> 9
+  <input type="radio" [(ngModel)]="selectedRecipe.rating" [value]="10"> 10
+
+
+  <br>
+  <button class="btn btn-info" (click)="addRecipe()">Add your recipe</button>
 </div>
-<h2>Here are some links to help you start: </h2>
-<p *ngFor="let single of recipes">{{single.title}}</p>
